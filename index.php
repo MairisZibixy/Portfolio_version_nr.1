@@ -77,7 +77,7 @@
                                 <a href="#" target="_blank" class="link__text">
                                     Visit Site <span>&rarr;</span>
                                 </a>
-                                <a href="https://github.com/MairisZibixy" title="View Source Code" target="_blank">
+                                <a href="https://github.com/MairisZibixy/Portfolio_version_nr.1" title="View Source Code" target="_blank">
                                     <img src="./images/github.svg" class="work__code" alt="GitHub">
                                 </a>
                             </div>
