@@ -7,16 +7,16 @@ error_reporting(E_ALL);
 <!doctype html>
 <link rel="stylesheet" href="style.css" />
 <div class="row">
-    <form action="" class="comments">
+    <form action="#contact" method="POST" class="comments">
         <?php
         include 'DB.php'; // izsaucās fails no kura tiek iegūtas funkcijas
         $db = new DB('localhost', 'root', 'root', 'comment_section'); // izveidojam objektu no klases 'new DB'
         $db->fetchAll('comments'); // Kopēts no index.php, nezinu vai šeit vajadzīgs
         //fetchAll satur visas vērtības un tās ieraksta mainīgajā
 
-        if (array_key_exists('update', $_GET)) {
+        if (array_key_exists('update', $_POST)) {
             // Pārbaude - ja adrešu joslā ir update, tad formā pievienojam 'h3' un 'input' laukus
-            $id = $_GET['update'];
+            $id = $_POST['update'];
             $user = $db->find($id); // Lai iegūtu vērtību izmantojam 'find'
             if ($user !== []) {
                 echo "<h3>Updating comment with id $id</h3>";
@@ -40,41 +40,41 @@ error_reporting(E_ALL);
 
     <?php
     if (
-        array_key_exists('email', $_GET) &&
-        array_key_exists('message', $_GET) &&
-        is_string($_GET['email']) &&
-        is_string($_GET['message'])
+        array_key_exists('email', $_POST) &&
+        array_key_exists('message', $_POST) &&
+        is_string($_POST['email']) &&
+        is_string($_POST['message'])
     ) {
         if (
-            array_key_exists('update-id', $_GET) &&
-            is_numeric($_GET['update-id'])
+            array_key_exists('update-id', $_POST) &&
+            is_numeric($_POST['update-id'])
         ) {
             $db->update( // update funkcijas izsaukšana
                 'comments',
                 [
-                    'id' => $_GET['update-id'],
-                    'email' => $_GET['email'],
-                    'message' => $_GET['message']
+                    'id' => $_POST['update-id'],
+                    'email' => $_POST['email'],
+                    'message' => $_POST['message']
                 ]
             );
         } else {
             $db->add( // add funkcijas izsaukšana
                 'comments',
                 [
-                    'email' => $_GET['email'],
-                    'message' => $_GET['message']
+                    'email' => $_POST['email'],
+                    'message' => $_POST['message']
                 ]
             );
         }
     }
     // print_r($_GET); // Mājaslapā izvada to ko satur masīvs $_GET(url joslas)
 
-    if (array_key_exists('delete', $_GET)) { // sadaļā kurā izdzēšam ierakstus
-        $id = (int) $_GET['delete'];
+    if (array_key_exists('delete', $_POST)) { // sadaļā kurā izdzēšam ierakstus
+        $id = (int) $_POST['delete'];
         $db->delete('comments', $id); // tiek izsaukta DB delete funckija
     }
 
-    // Sadaļa kurā izvadās visi ieraksti izmantojot getAll funkciju
+    // Sadaļa kurā izvadās visi ieraksti izmantojot POSTAll funkciju
     foreach ($db->getAll() as $row) {
         echo "<p>";
         echo "<b>" . $row['id'] . "</b>";
