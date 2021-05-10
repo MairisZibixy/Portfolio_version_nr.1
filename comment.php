@@ -19,7 +19,7 @@ error_reporting(E_ALL);
             $id = $_GET['update'];
             $user = $db->find($id); // Lai iegūtu vērtību izmantojam 'find'
             if ($user !== []) {
-                echo "<h3><a href='/'>&lt;-</a> Atjauninam ierakstu ar id $id</h3>";
+                echo "<h3>Updating comment with id $id</h3>";
                 echo "<input type='hidden' name='update-id' value='$id'>";
             }
         } else {
