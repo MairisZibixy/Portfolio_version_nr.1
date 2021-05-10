@@ -184,7 +184,7 @@
             <h2>Get in Touch</h2>
             <div class="contact__info">
                 <p>
-                    Are you looking for a fast-performing and user-friendly website to represent your product or business? or have some advice for me, in any case feel free to Let me know.
+                    Are you looking for a fast-performing and user-friendly website to represent your product or business? Or have some advice for me? In any case feel free to Let me know.
                 </p>
                 <a href="mailto:zibitijs@gmail.com" class="btn">zibitijs@gmail.com</a>
             </div>
