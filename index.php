@@ -14,6 +14,13 @@
     <!-- Define keywords for search engines -->
     <meta name="keywords" content="Junior web developer, HTML, CSS, JS" />
     <link rel="stylesheet" href="style.css" />
+
+    <!-- This script clears url after using $_GET method in comments section.  -->
+    <script>
+        if (typeof window.history.pushState == 'function') {
+            window.history.pushState({}, "Hide", '<?php echo $_SERVER['PHP_SELF']; ?>');
+        }
+    </script>
 </head>
 
 <body>
@@ -71,6 +78,7 @@
                                 <li>HTML</li>
                                 <li>CSS</li>
                                 <li>JavaScript</li>
+                                <li>PHP</li>
                             </ul>
 
                             <div class="work__links">
@@ -83,7 +91,7 @@
                             </div>
                         </div>
                         <div class="work__image-box">
-                            <img src="./images/project-1.png" class="work__image" alt="Project 1" />
+                            <img src="./images/project-1.png" class="work__image" alt="Portfolio" />
                         </div>
                     </div>
 
@@ -111,7 +119,7 @@
                             </div>
                         </div>
                         <div class="work__image-box">
-                            <img src="./images/tictactoe.png" class="work__image" alt="Project 1" />
+                            <img src="./images/tictactoe.png" class="work__image" alt="Tic-tac-toe" />
                         </div>
                     </div>
 
@@ -119,9 +127,9 @@
 
                     <div class="work__box">
                         <div class="work__text">
-                            <h3>42 link</h3>
+                            <h3>42 links</h3>
                             <p>
-                                42 link made with PHP.
+                                42 links made with PHP.
                             </p>
                             <ul class="work__list">
                                 <li>HTML</li>
@@ -139,42 +147,73 @@
                             </div>
                         </div>
                         <div class="work__image-box">
-                            <img src="./images/42_link.png" class="work__image" alt="Project 1" />
+                            <img src="./images/42_link.png" class="work__image" alt="42 links" />
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Clients -->
-
-                    <section class="client" id="clients">
-                        <div class="row">
-                            <h2>Clients</h2>
-                            <div class="client__logos">
-                                <!-- Logos of the clients or companies I have worked with -->
-                                <img src="./images/comming_soon.jpg" class="client__logo" alt="Comming soon">
-                            </div>
+        <!-- Clients -->
+        <section class="client" id="clients">
+            <div class="row">
+                <h2>Certificates</h2>
+                <div class="work__box">
+                    <div class="work__text">
+                        <h3>Web development bootcamp course</h3>
+                        <p>
+                            Intensive learning experience.
+                            Great for starting to pave my way to IT industry, worth every penny.
+                        </p>
+                        <ul class="work__list">
+                            <li>HTML5</li>
+                            <li>CSS3</li>
+                            <li>JavaScript</li>
+                            <li>PHP</li>
+                            <li>SQL</li>
+                            <li>GIT</li>
+                        </ul>
+                        <div class="work__links">
+                            <a href="https://rigacoding.lv/" target="_blank" class="link__text">
+                                Visit Site <span>&rarr;</span>
+                            </a>
                         </div>
-                    </section>
+                    </div>
+                    <div class="work__image-box">
+                        <img src="./images/certificate.png" class="work__image" alt="Certificate" />
+                    </div>
+                </div>
+        </section>
+        <section class="client" id="clients">
+            <div class="row">
+                <h2>Clients</h2>
+                <div class="client__logos">
+                    <!-- Logos of the clients or companies I have worked with -->
+                    <img src="./images/comming_soon.jpg" class="client__logo" alt="Comming soon">
+                </div>
+            </div>
+        </section>
 
-                    <!-- About me -->
+        <!-- About me -->
 
-                    <section class="about" id="about">
-                        <div class="row">
-                            <h2>About Me</h2>
-                            <div class="about__content">
-                                <div class="about__text">
-                                    <p>
-                                        Hello, my name is Mairis Kārkliņš, I am starting my journey as a web developer. I love traveling and adventures in nature, reading books, bicycle rides, action PC games and enjoy watching humorous TV-series.
-                                    </p>
-                                    <!-- Provide a link to resume -->
-                                    <a href="#" class="btn">My Resume</a>
-                                </div>
+        <section class="about" id="about">
+            <div class="row">
+                <h2>About Me</h2>
+                <div class="about__content">
+                    <div class="about__text">
+                        <p>
+                            Hello, my name is Mairis Kārkliņš, I am starting my journey as a web developer. I love traveling and adventures in nature, reading books, bicycle rides, action PC games and enjoy watching humorous TV-series.
+                        </p>
+                        <!-- Provide a link to resume -->
+                        <a href="#" class="btn">My Resume</a>
+                    </div>
 
-                                <div class="about__photo-container">
-                                    <img class="about__photo" src="./images/Mairis.JPG" alt="" />
-                                </div>
-                            </div>
-                        </div>
-                    </section>
+                    <div class="about__photo-container">
+                        <img class="about__photo" src="./images/Mairis.JPG" alt="" />
+                    </div>
+                </div>
+            </div>
+        </section>
     </main>
 
     <!-- Contact -->
@@ -188,11 +227,13 @@
                 </p>
                 <a href="mailto:zibitijs@gmail.com" class="btn">zibitijs@gmail.com</a>
             </div>
-        </div>
-        <div>
-            <?php
-            include 'comment.php';
-            ?>
+
+            <div class="contact__info comments">
+                <h3>Comment section</h3>
+                <?php
+                include 'comment.php';
+                ?>
+            </div>
         </div>
     </section>
 

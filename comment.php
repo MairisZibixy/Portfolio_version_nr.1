@@ -14,12 +14,12 @@ error_reporting(E_ALL);
         $db->fetchAll('comments'); // Kopēts no index.php, nezinu vai šeit vajadzīgs
         //fetchAll satur visas vērtības un tās ieraksta mainīgajā
 
-        if (array_key_exists('update', $_POST)) {
+        if (array_key_exists('update', $_GET)) {
             // Pārbaude - ja adrešu joslā ir update, tad formā pievienojam 'h3' un 'input' laukus
-            $id = $_POST['update'];
+            $id = $_GET['update'];
             $user = $db->find($id); // Lai iegūtu vērtību izmantojam 'find'
             if ($user !== []) {
-                echo "<h3>Updating comment with id $id</h3>";
+                echo "<h4>Updating comment with id $id</h4>";
                 echo "<input type='hidden' name='update-id' value='$id'>";
             }
         } else {
@@ -69,8 +69,8 @@ error_reporting(E_ALL);
     }
     // print_r($_GET); // Mājaslapā izvada to ko satur masīvs $_GET(url joslas)
 
-    if (array_key_exists('delete', $_POST)) { // sadaļā kurā izdzēšam ierakstus
-        $id = (int) $_POST['delete'];
+    if (array_key_exists('delete', $_GET)) { // sadaļā kurā izdzēšam ierakstus
+        $id = (int) $_GET['delete'];
         $db->delete('comments', $id); // tiek izsaukta DB delete funckija
     }
 
